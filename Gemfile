@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 4.2'
-gem 'faraday'
-gem 'faraday-retry'
+gem 'faraday', '~> 2.7', '>= 2.7.11'
 gem 'webrick'
 
 group :jekyll_plugins do
