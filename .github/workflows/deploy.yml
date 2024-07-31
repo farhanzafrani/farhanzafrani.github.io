@@ -81,8 +81,10 @@ jobs:
           value: ${{ github.repository }}
       - name: Install dependencies
         run: |
-          gem install bundler
-          bundle install
+          gem install bundler:2.5.7
+      - name: Install dependencies
+        run: |
+          bundle _2.5.7_ install
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade jupyter
