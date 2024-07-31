@@ -24,6 +24,7 @@ group :jekyll_plugins do
   gem 'jemoji'
   gem 'mini_racer'
   gem 'unicode_utils'
+  gem 'bundle install'
 end
 
 group :other_plugins do

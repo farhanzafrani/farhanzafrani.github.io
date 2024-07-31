@@ -269,6 +269,7 @@ plugins:
   - jekyll-toc
   - jekyll-twitter-plugin
   - jemoji
+  - faraday-retry
   - gemfile
 
 toc:
