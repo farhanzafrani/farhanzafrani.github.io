@@ -7,7 +7,7 @@ subtitle: <a href='https://www.soco-engineers.de/'>SOCO ENGINEERS</a>. Taunusstr
 profile:
   align: right
   image: profile_pic.png
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
   more_info: >
     <p>555 your office number</p>
     <p>Sector H-13</p>

@@ -1,70 +1,77 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Muhammad Farhan",
+    "label": "AI and Automation Engineer",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "farhanzafrani@gmail.com",
+    "phone": "(+92) 312 9317210",
+    "url": "https://farhanzafrani.github.io/cv/",
+    "summary": "A AI and Automation Engineer having an experience of about 1 year, working on multi-disciplinary and computational problems to reduce the simulation time and increase the productivity/performance of BMW Group CAE Research Projects.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "6 No. Chungi Gulgasht",
+      "postalCode": "92010",
+      "city": "Multan",
+      "countryCode": "Pakistan",
+      "region": "Punjab"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "LinkedIn",
+        "username": "Muhammad Farhan",
+        "url": "https://www.linkedin.com/farhanzafrani"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
+      "name": "SOCO Engineers, Multan",
+      "position": "AI and Automation Engineer",
+      "url": "https://www.soco-engineers.de",
+      "startDate": "2023-12-15",
+      "endDate": "Present",
       "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "highlights": ["Optimization", "Automation"]
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
+      "organization": "Bzm-e-Paigham",
+      "location": "Islamabad, Pakistan",
       "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "url": "https://bazmepaigham.com/",
+      "startDate": "Mar 2022",
+      "endDate": "Present",
+      "summary": "Participate in their Career Campaign *Make the Diamond shine* to motivate the student about their future goals and studies. Worked with them for the 2-week-long campaign in which we visited 4 indigenous schools of Islamabad.",
+      "highlights": [" Covered above 400 students group-wise, to educate them about *How to study?*", "Motivate them to apply for the scholarships available for them in the area to fund their studies", "Work on their personal skills and guide them to become a better citizens of Pakistan"]
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "National University of Sciences and Technology (NUST)",
+      "location": "Islamabad",
+      "url": "https://nust.edu.pk/",
+      "area": "Mechanical Engineering",
+      "studyType": "BE",
+      "startDate": "2019-09-01",
+      "endDate": "2023-06-05",
+      "score": "3.42",
+      "courses": ["Mechanics of Machines", "Finite Element Analysis", "Fluid Dynamics"]
     }
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "NGIRI - Winner",
+      "date": "2023-06-05",
+      "awarder": "Ignite, Pakistan",
+      "url": "https://ignite.org.pk/national-grassroots-research-initiative/",
+      "summary": "Our Final Year Project was awarded funding of worth 0.1 million PKR by the government of Pakistan under the IGNITE National Technology Fund program..'"
+    },
+    {
+      "title":"FICS-Finalist",
+      "date":"2023-03-05",
+      "awarder":"FICS-NUST",
+      "url":"https://fics.nust.edu.pk/about/",
+      "summary":"Our start-up idea, “REHABOTICS”, won 1st position in the Idea submission stage of Pakistan’s largest start-up competition, wherein more than 450 ideas were presented in the year 2023."
     }
   ],
   "certificates": [
@@ -125,34 +132,31 @@
       "releaseDate": "1905-03-18",
       "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
       "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
-    },
-    {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
     }
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
+      "name": "Machine Learning",
+      "level": "Expert",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Regression Algorithms",
+        "Classification Algorithms",
+        "Ensemble Learning",
+        "Boosting Algorithms",
+        "Clustring Algorithms"
       ]
     }
   ],
   "languages": [
     {
-      "language": "German",
-      "fluency": "Native speaker",
+      "language":"Pashto",
+      "fluency":"Native Language",
+      "icon":""
+    }
+    {
+      "language": "Urdu",
+      "fluency": "National Language",
       "icon": ""
     },
     {
@@ -163,37 +167,37 @@
   ],
   "interests": [
     {
-      "name": "Physics",
+      "name": "Computational Scieces",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Machine Learning",
+        "Optimization Techniques",
+        "Deep learning",
+        "LLMs",
+        "Generative AI",
+        "Finite Element Analysis"
       ]
     }
   ],
   "references": [
     {
-      "name": "Professor John Doe",
+      "name": " Dr. Muhammad Asim Waris",
       "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "reference": "Dr. Muhammad Asim Waris is an Assistant Professor at the Aerospace department SMME, NUST. He was my supervisor for the bachelor's (BE) final year project, and currently, I was working with him as a research assistant on a research project at the Human System Lab, SMME, NUST."
     },
     {
-      "name": "Professor John Doe",
+      "name": " Dr. Ibraheem Haneef",
       "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "reference": "Dr. Ibraheem Haneef is a Professor at the Aerospace department SMME, NUST. He has taught me Project Management and also coordinated me in my final year project. I took a workshop of Practical Reinforcement Learning under his supervision."
     }
   ],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
+      "name": "Design and Fabrication of Soft Robotics Glove for the Rehabilitation of Stroke Patients using EMG data and Pattern Recognition Techniques",
+      "summary": "Fabricated a right hand Soft Robotic Glove to assist the Stroke Patients in their Rehabilitation. Casted the Soft Robotic Actuators using Ecoflex 00-30 (silicone) that is an synthesized elastomer used in pneumatic based Soft Robotics. Achieved the desired bending using lower pressure of 60 Kpa. Controlled the actuator using the Raspberry PI 4 that was programmed using Python based on Machine Learning algorithms. Designed the Actuator using CAD software and simulated the actuator using ANSYS workbench for pressure requirements that came out to be 60 Kpa for single Actuator. Achieved an accuracy of 92% in prediction of the true hand gesture that ultimately controlled the actuator to rehabilitate the Stroke Patient Hand through Robotic Glove",
+      "highlights": ["Soft Robotics", "EMG", "Machine Learning"],
+      "startDate": "2022-06-01",
+      "endDate": "2023-06-05",
       "url": "https://example.com"
     }
   ]
