@@ -11,7 +11,7 @@
 - title: Education
   type: time_table
   contents:
-    - title: BE
+    - title: BE Mechanical Engineering
       institution: National University of Sciences and Technology, Islamabad
       year: 2023
       description:
@@ -33,7 +33,7 @@
   contents:
     - title: AI and Automation Engineer
       institution: SOCO Engineers, Multan Pakistan
-      year: Dec 2023 - Present
+      year: 2023 - Present
       description:
         - Description 1.
         - Description 2.
@@ -43,14 +43,14 @@
             - Sub-description 2.
     - title: Research Assistant
       institution: Human System Lab, School of Mechanical and Manufacturing Engineerins (SMME), NUST Islamabad
-      year: Sept. 2022 - Oct.2023
+      year: 2022 - 2023
       description:
         - Description 1.
         - Description 2.
 
     - title: Machine Learning Intern
       institution: School of Mechanical and Manufacturing Engineerins (SMME), NUST Islamabad
-      year: June 2022 - Sept. 2022
+      year: 2022 - Sept. 2022
 
 - title: Open Source Projects
   type: time_table
