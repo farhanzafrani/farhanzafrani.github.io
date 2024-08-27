@@ -134,8 +134,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: DeepCircuitry # blog_name will be displayed in your blog page
-blog_description: >
- DeepCircuitry is a blog dedicated to unraveling the complexities of modern technology. We delve into the depths of deep learning, transformers, machine learning, and computational sciences, breaking down advanced concepts into accessible insights. Whether you're a seasoned professional or just beginning your journey in AI, DeepCircuitry offers valuable knowledge, thought-provoking discussions, and cutting-edge perspectives on the technologies shaping our future. Join us as we explore the intricate pathways of innovation and discovery.
+blog_description: AI Computational Sciences and Engineering
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
