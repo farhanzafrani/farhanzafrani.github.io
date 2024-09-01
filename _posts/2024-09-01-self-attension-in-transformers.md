@@ -4,10 +4,10 @@ title: Understanding Self-Attention in Transformers
 date: 2024-09-01
 description: understanding self-attension mechanism in transformers in details
 tags: self_attention
-categories: transformers
+categories: transformers , deeplearnings, sequence models
+featured: true
 ---
 
-Understanding Self-Attention in Transformers
 ============================================
 
 Self-Attention is a fundamental mechanism in modern Natural Language Processing (NLP) models, especially in Transformer architectures. It allows models to weigh the importance of different words in a sequence when encoding a particular word, enabling the capture of contextual relationships effectively.

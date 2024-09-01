@@ -9,9 +9,9 @@ profile:
   image: profile_pic.png
   image_circular: false # crops the image to make it circular
   more_info: >
-    *<p>soco-engineers third floor</p>*
-    *<p>Chase Up Mall, Gulgasht</p>*
-    *<p>Multan, Pakistan</p>*
+    <p>soco-engineers third floor</p>
+    <p>Chase Up Mall, Gulgasht</p>
+    <p>Multan, Pakistan</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
