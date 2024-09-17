@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+Use of `einsum` (Einstain Summation) for handling multi dimensional arrays.:sparkles:
