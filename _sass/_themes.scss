@@ -1,145 +1,90 @@
-/*******************************************************************************
- * Themes
- ******************************************************************************/
+/******************************************************************************* 
+ * Themes 
+ ******************************************************************************/ 
 
-:root {
-  --global-bg-color: #{$white-color};
-  --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
-  --global-footer-link-color: #{$white-color};
-  --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
-  --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$red-color-dark};
-  --global-back-to-top-bg-color: rgba(#{red($black-color)}, #{green($black-color)}, #{blue($black-color)}, 0.4);
-  --global-back-to-top-text-color: #{$white-color};
-  --global-newsletter-bg-color: #{$white-color};
-  --global-newsletter-text-color: #{$black-color};
-
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
-
-  #light-toggle-system {
-    padding-left: 10px;
-    padding-top: 12px;
-    display: block;
-  }
-
-  #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
-    display: none;
-  }
-
-  .repo-img-light {
-    display: block;
-  }
-  .repo-img-dark {
-    display: none;
-  }
-
-  #back-to-top {
-    color: var(--global-back-to-top-text-color);
-    background: var(--global-back-to-top-bg-color);
-    bottom: $back-to-top-bottom;
-    right: $back-to-top-right;
-    height: $back-to-top-height;
-    width: $back-to-top-width;
-    z-index: $back-to-top-z-index;
+ :root { 
+  --global-bg-color: #000000; /* Black background */ 
+  --global-code-bg-color: #1c1f26; /* Dark navy for code background */
+  --global-text-color: #d4e0e6; /* Light greenish-blue for text */
+  --global-text-color-light: #99aab5; /* Lighter greyish-blue for secondary text */
+  --global-theme-color: #009688; /* Greenish theme color */
+  --global-hover-color: #004d40; /* Darker greenish color for hover */
+  --global-hover-text-color: #ffffff; /* White for hover text */
+  --global-footer-bg-color: #263238; /* Navy blue for footer background */
+  --global-footer-text-color: #b0bec5; /* Light grey for footer text */
+  --global-footer-link-color: #80cbc4; /* Greenish blue for footer links */
+  --global-distill-app-color: #37474f; /* Darker grey-blue */
+  --global-divider-color: rgba(255, 255, 255, 0.1); /* Light divider color */
+  --global-card-bg-color: #1c1f26; /* Navy for card background */
+  --global-highlight-color: #ff5252; /* Red highlight */
+  --global-back-to-top-bg-color: rgba(0, 77, 64, 0.4); /* Dark greenish */
+  --global-back-to-top-text-color: #ffffff; /* White for back to top text */
+  --global-newsletter-bg-color: #263238; /* Navy background */
+  --global-newsletter-text-color: #d4e0e6; /* Greenish text */
+  
+  --global-tip-block: #42b983; /* Green tip block */
+  --global-tip-block-bg: #e2f5ec; /* Light green background */
+  --global-tip-block-text: #215d42; /* Dark green text */
+  --global-tip-block-title: #359469; /* Green title */
+  --global-warning-block: #ffab00; /* Yellow warning block */
+  --global-warning-block-bg: #fff8e1; /* Light yellow background */
+  --global-warning-block-text: #795548; /* Brown text */
+  --global-warning-block-title: #ffa726; /* Orange title */
+  --global-danger-block: #f44336; /* Red danger block */
+  --global-danger-block-bg: #ffebee; /* Light red background */
+  --global-danger-block-text: #d32f2f; /* Dark red text */
+  --global-danger-block-title: #c62828; /* Darker red title */
+  
+  /* Back-to-top button */
+  #back-to-top { 
+    color: var(--global-back-to-top-text-color); 
+    background: var(--global-back-to-top-bg-color); 
   }
 }
 
-html[data-theme="dark"] {
-  --global-bg-color: #{$grey-color-dark};
-  --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
-  --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
-  --global-back-to-top-bg-color: rgba(#{red($white-color)}, #{green($white-color)}, #{blue($white-color)}, 0.5);
-  --global-back-to-top-text-color: #{$black-color};
-  --global-newsletter-bg-color: #{$grey-color-light};
-  --global-newsletter-text-color: #{$grey-color-dark};
-
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
-
-  .repo-img-light {
-    display: none;
-  }
-  .repo-img-dark {
-    display: block;
-  }
+html[data-theme="dark"] { 
+  --global-bg-color: #0d0f12; /* Dark black-blue background */
+  --global-code-bg-color: #11151c; /* Darker navy for code */
+  --global-text-color: #99aab5; /* Light greyish-blue for text */
+  --global-theme-color: #009688; /* Same greenish theme */
+  --global-hover-color: #004d40; /* Darker green hover */
+  --global-footer-bg-color: #1c1f26; /* Dark navy footer */
+  --global-footer-text-color: #b0bec5; /* Lighter grey for footer text */
+  --global-footer-link-color: #80cbc4; /* Same greenish blue for links */
+  
+  .repo-img-light { 
+    display: none; 
+  } 
+  .repo-img-dark { 
+    display: block; 
+  } 
 }
 
-html[data-theme-setting="dark"] {
-  #light-toggle-system {
-    display: none;
+html[data-theme-setting="dark"] { 
+  #light-toggle-system { 
+    display: none; 
   }
-
-  #light-toggle-dark {
-    padding-left: 10px;
-    padding-top: 12px;
-    display: block;
+  
+  #light-toggle-dark { 
+    padding-left: 10px; 
+    padding-top: 12px; 
+    display: block; 
   }
-
-  #light-toggle-light {
-    display: none;
-  }
-
-  #back-to-top {
-    color: var(--global-back-to-top-text-color);
-    background: var(--global-back-to-top-bg-color);
-  }
+  
+  #back-to-top { 
+    color: var(--global-back-to-top-text-color); 
+    background: var(--global-back-to-top-bg-color); 
+  } 
 }
 
-html[data-theme-setting="light"] {
-  #light-toggle-system {
-    display: none;
+html[data-theme-setting="light"] { 
+  #light-toggle-system { 
+    display: none; 
   }
-
-  #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
-    padding-left: 10px;
-    padding-top: 12px;
-    display: block;
+  
+  #light-toggle-light { 
+    padding-left: 10px; 
+    padding-top: 12px; 
+    display: block; 
   }
 }
