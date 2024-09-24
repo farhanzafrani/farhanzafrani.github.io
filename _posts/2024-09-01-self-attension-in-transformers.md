@@ -9,6 +9,10 @@ featured: true
 ---
 
 ============================================
+<div class="row mt-3">
+    {% include figure.liquid loading="eager" path="/assets/img/transformer-with-pytorch.png" class="img-fluid rounded z-depth-1" %}
+</div>
+<!-- ![transformer](/assets/img/transformer-with-pytorch.png) -->
 
 Self-Attention is a fundamental mechanism in modern Natural Language Processing (NLP) models, especially in Transformer architectures. It allows models to weigh the importance of different words in a sequence when encoding a particular word, enabling the capture of contextual relationships effectively.
 
