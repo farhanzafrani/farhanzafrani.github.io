@@ -4,6 +4,7 @@ title: Understanding Self-Attention in Transformers
 date: 2024-09-01
 description: understanding self-attension mechanism in transformers in details
 tags: self_attention
+thumbnail: assets/img/transformer-with-pytorch.png
 categories: transformers , deeplearnings, sequence models
 featured: true
 toc:
