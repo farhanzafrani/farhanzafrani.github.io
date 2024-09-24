@@ -6,38 +6,19 @@ description: understanding self-attension mechanism in transformers in details
 tags: self_attention
 categories: transformers , deeplearnings, sequence models
 featured: true
+toc:
+  beginning: true
 ---
 
 ============================================
-<div class="row mt-3">
-    {% include figure.liquid loading="eager" path="/assets/img/transformer-with-pytorch.png" class="img-fluid rounded z-depth-1" %}
-</div>
-<!-- ![transformer](/assets/img/transformer-with-pytorch.png) -->
+
+![transformer](../assets/img/transformer-with-pytorch.png)
 
 Self-Attention is a fundamental mechanism in modern Natural Language Processing (NLP) models, especially in Transformer architectures. It allows models to weigh the importance of different words in a sequence when encoding a particular word, enabling the capture of contextual relationships effectively.
 
 This guide provides a detailed understanding of self-attention, its necessity, and how it works, along with illustrative examples and code snippets.
 
-Table of Contents
------------------
-
-1.  [Introduction to Word Embeddings](#1-introduction-to-word-embeddings)
-2.  [Limitations of Traditional Word Embeddings](#2-limitations-of-traditional-word-embeddings)
-3.  [What is Self-Attention?](#3-what-is-self-attention)
-4.  [How Does Self-Attention Work?](#4-how-does-self-attention-work)
-    -   [4.1. The Concept](#41-the-concept)
-    -   [4.2. Mathematical Formulation](#42-mathematical-formulation)
-    -   [4.3. Scaled Dot-Product Attention](#43-scaled-dot-product-attention)
-5.  [Implementing Self-Attention in Code](#5-implementing-self-attention-in-code)
-    -   [5.1. Single-Head Self-Attention](#51-single-head-self-attention)
-    -   [5.2. Multi-Head Self-Attention](#52-multi-head-self-attention)
-6.  [Benefits of Self-Attention](#6-benefits-of-self-attention)
-7.  [Conclusion](#7-conclusion)
-8.  [References](#8-references)
-
-* * * * *
-
-1\. Introduction to Word Embeddings
+## Introduction to Word Embeddings
 -----------------------------------
 
 **Word Embeddings** are numerical representations of words in a continuous vector space where semantically similar words are mapped closely together. They have been instrumental in capturing the meaning and context of words in various NLP tasks.
@@ -64,7 +45,7 @@ vector = model.wv['king']  # Retrieves the embedding for 'king'
 
 * * * * *
 
-2\. Limitations of Traditional Word Embeddings
+## Limitations of Traditional Word Embeddings
 ----------------------------------------------
 
 Despite their effectiveness, traditional word embeddings have several limitations:
@@ -118,7 +99,7 @@ Self-Attention computes:
 
 * * * * *
 
-4\. How Does Self-Attention Work?
+## How Does Self-Attention Work?
 ---------------------------------
 
 ### 4.1. The Concept
@@ -185,7 +166,7 @@ Attention(Q,K,V)=softmax(QKTdk)V\text{Attention}(Q, K, V) = \text{softmax}\left(
 
 * * * * *
 
-5\. Implementing Self-Attention in Code
+## Implementing Self-Attention in Code
 ---------------------------------------
 
 We'll implement both single-head and multi-head self-attention mechanisms using PyTorch.
@@ -313,7 +294,7 @@ print(output.shape)  # Output: torch.Size([2, 5, 64])
 
 * * * * *
 
-6\. Benefits of Self-Attention
+## Benefits of Self-Attention
 ------------------------------
 
 -   **Contextual Representations:** Captures the context of words dynamically, handling polysemy effectively.
@@ -333,7 +314,7 @@ print(output.shape)  # Output: torch.Size([2, 5, 64])
 
 * * * * *
 
-7\. Conclusion
+## Conclusion
 --------------
 
 Self-Attention has revolutionized the field of NLP by providing a powerful mechanism to capture contextual information effectively. It addresses the limitations of traditional word embeddings and recurrent models, enabling the development of sophisticated models like Transformers that have set new benchmarks across various tasks.
@@ -342,7 +323,7 @@ Understanding self-attention is crucial for leveraging modern NLP architectures 
 
 * * * * *
 
-8\. References
+## References
 --------------
 
 1.  Vaswani, A., et al. (2017). [**"Attention is All You Need"**](https://arxiv.org/abs/1706.03762). *Advances in Neural Information Processing Systems*.
