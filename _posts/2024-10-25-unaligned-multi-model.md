@@ -3,7 +3,8 @@ layout: post
 title: In-Depth Look at the Multimodal Transformer for Unaligned Multimodal Language Sequences
 date: 2024-05-01 00:32:13
 description: this is what included tabs in a post could look like
-tags: formatting code
+tags: multi-model-transformer
+thumbnail: assets/img/unaligned-multi-model-transformer.png
 categories: transformers, deep-learning, multi-model-transformers
 featured: true
 toc:
