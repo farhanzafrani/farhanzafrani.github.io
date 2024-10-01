@@ -4,14 +4,16 @@ title: In-Depth Look at the Multimodal Transformer for Unaligned Multimodal Lang
 date: 2024-05-01 00:32:13
 description: this is what included tabs in a post could look like
 tags: multi-model-transformer
-thumbnail: assets/img/unaligned-multi-model-transformer.png
+thumbnail: assets/img/unaligned_multi_model_transformer.png
 categories: transformers, deep-learning, multi-model-transformers
 featured: true
 toc:
   beginning: true
 ---
-
-![title_image](../assets/img/unaligned-multi-model-transformer.png)
+<figure>
+  <img src="/assets/img/unaligned_multi_model_transformer.png" alt="transformer" width="800"/>
+  <figcaption>Unaligned_multi_model_transformer.</figcaption>
+</figure>
 
 #### **Introduction**
 The paper **"Multimodal Transformer for Unaligned Multimodal Language Sequences"** introduces a powerful approach to tackle unaligned multimodal sequences by leveraging the Transformer architecture. This is crucial for tasks like video understanding, sentiment analysis, and language grounding where different modalities, such as text, speech, and visual data, are not synchronized in time.
@@ -56,8 +58,10 @@ Each extracted feature set is passed to its respective **modality-specific encod
 * * * * *
 #### **2\. Modality-Specific Encoders**
 
-![Model Architecture](../assets/img/architecture.png)
-*image is taken from paper github repo*
+<figure>
+  <img src="/assets/img/architecture.png" alt="architecture" width="800"/>
+  <figcaption>Image is taken from paper github repo.</figcaption>
+</figure>
 
 Each modality (text, audio, video) is processed through its own transformer encoder, which consists of multiple layers of **self-attention** and **feed-forward networks**. These encoders learn the intra-modality relationships.
 The transformer encoder follows the traditional architecture:
@@ -86,8 +90,10 @@ Each modality's encoder operates independently, generating **modality-specific h
 * * * * *
 #### **3\. Cross-Modal Attention Mechanism**
 
-![Cross Model Attention](../assets/img/cross_model.png)
-*image is taken from paper github repo*
+<figure>
+  <img src="/assets/img/cross_model.png" alt="transformer" width="800"/>
+  <figcaption>Image is taken from paper github repo.</figcaption>
+</figure>
 
 One of the most innovative parts of this model is the **Cross-Modal Attention Mechanism**, which allows different modalities to attend to each other. This mechanism is crucial for capturing relationships between text, audio, and visual streams, even when they are temporally misaligned.
 
