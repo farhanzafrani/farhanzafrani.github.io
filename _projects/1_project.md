@@ -1,11 +1,12 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: Coccidiosis Disease Prediction Using Chicken Fecals
+description: It's a complete end to end ML project that include MLOps as well.
+img: assets/img/project_1.png
 importance: 1
-category: work
-related_publications: true
+redirect: https://github.com/farhanzafrani/Coccidiosis-Disease-Prediction-in-Using-Chicken-Fecals
+category: computer_vision
+giscus_comments: true
 ---
 
 Every project has a beautiful feature showcase page.
