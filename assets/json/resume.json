@@ -6,7 +6,7 @@
     "email": "farhanzafrani@gmail.com",
     "phone": "(+92) 312 9317210",
     "url": "https://farhanzafrani.github.io/cv/",
-    "summary": "A AI and Automation Engineer having an experience of about 1 year, working on multi-disciplinary and computational problems to reduce the simulation time and increase the productivity/performance of BMW Group CAE Research Projects.",
+    "summary": "As an AI and Automation Engineer with 1 year of experience, I work on cutting-edge research projects for BMW Group, focusing on shape optimization in structural mechanics and applying advanced deep learning techniques to detect anomalies in diverse simulation data formats. My expertise spans a range of deep learning models, including RNNs, CNNs, LSTMs, GNNs, MeshGraphNets, and Transformers, with data sourced from both SQL (Postgres, MySQL) and NoSQL (MongoDB) databases. Additionally, I develop simulation workflows on SimuSpace, ensuring seamless data processing and analysis.",
     "location": {
       "address": "6 No. Chungi Gulgasht",
       "postalCode": "92010",
@@ -145,6 +145,30 @@
         "Boosting Algorithms",
         "Clustring Algorithms"
       ]
+    },
+    {
+      "name": "Deep Learning",
+      "level": "Proficient",
+      "icon": "fa-solid fa-network-wired",
+      "keywords": [
+        "Neural Networks",
+        "Recurrent Neural Networks",
+        "Transformers",
+        "Reinforcement Learning",
+        "Autoencoders",
+        "Generative Adversarial Networks",
+        "Graph Neural Networks"]
+    },
+    {
+      "name": "Cloud Platforms",
+      "level": "Proficient",
+      "icon": "fa-solid fa-cloud",
+      "keywords": [
+        "AWS",
+        "Azure",
+        "Kubernetes",
+        "Docker",
+        "Serverless Computing"]
     }
   ],
   "languages": [
