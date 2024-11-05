@@ -205,12 +205,12 @@
   "references": [
     {
       "name": " Dr. Muhammad Asim Waris",
-      "icon": "fa-solid fa-laptop",
+      "icon": "fa-solid fa-person-circle",
       "reference": "Dr. Muhammad Asim Waris is an Assistant Professor at the Aerospace department SMME, NUST. He was my supervisor for the bachelor's (BE) final year project, and currently, I was working with him as a research assistant on a research project at the Human System Lab, SMME, NUST."
     },
     {
       "name": " Dr. Ibraheem Haneef",
-      "icon": "fa-solid fa-thumbtack",
+      "icon": "fa-solid fa-person-circle",
       "reference": "Dr. Ibraheem Haneef is a Professor at the Aerospace department SMME, NUST. He has taught me Project Management and also coordinated me in my final year project. I took a workshop of Practical Reinforcement Learning under his supervision."
     }
   ],
