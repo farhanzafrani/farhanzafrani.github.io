@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Muhammad Farhan</title>
+  <meta name="description" content="Technical blog by Muhammad Farhan">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <nav class="pf-nav" role="navigation" aria-label="Main navigation">
+    <div class="pf-nav__inner">
+      <a class="pf-nav__logo" href="index.html" aria-label="Home">MF</a>
+      <ul class="pf-nav__links" id="nav-links">
+        <li><a href="index.html#about">About</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="index.html#skills">Skills</a></li><li><a href="index.html#education">Education</a></li><li><a href="index.html#contact">Contact</a></li><li><a href="blog.html" class="active">Blog</a></li>
+      </ul>
+      <button class="pf-nav__burger" aria-label="Toggle menu"
+              aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pf-main">
+    <section class="blog-listing-hero">
+      <div class="container">
+        <span class="section-tag">writing</span>
+        <h1>Blog</h1>
+        <p class="blog-listing-sub">Thoughts on AI, deep learning, and engineering automation.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="blog-grid">
+        <a class="blog-card" href="blog/unaligned-multi-modal-transformers.html">
+          <div class="blog-card__date">2024-10-25</div>
+          <div class="blog-card__title">Unaligned Multi-Modal Transformers</div>
+          <div class="blog-card__excerpt">Most vision-language models assume tight alignment between image patches and text tokens. What happens when we relax that constraint? A look at unaligned multi-modal architectures and why they matter.</div>
+          <div class="blog-card__tags"><span class="blog-tag">Transformers</span><span class="blog-tag">Vision</span><span class="blog-tag">Research</span></div>
+          <div class="blog-card__more">Read more &#8594;</div>
+        </a>
+        <a class="blog-card" href="blog/einsum-explained.html">
+          <div class="blog-card__date">2024-10-20</div>
+          <div class="blog-card__title">Einstein Summation (einsum) for Multi-Dimensional Arrays</div>
+          <div class="blog-card__excerpt">einsum notation lets you write complex tensor contractions — matrix multiplications, batch operations, traces — in one readable line. Here is how to master it.</div>
+          <div class="blog-card__tags"><span class="blog-tag">Python</span><span class="blog-tag">NumPy</span><span class="blog-tag">Linear Algebra</span></div>
+          <div class="blog-card__more">Read more &#8594;</div>
+        </a>
+        <a class="blog-card" href="blog/self-attention-transformers.html">
+          <div class="blog-card__date">2024-09-01</div>
+          <div class="blog-card__title">Self-Attention in Transformers Explained</div>
+          <div class="blog-card__excerpt">A visual walkthrough of the self-attention mechanism — the core building block of Transformer models — with step-by-step implementation in PyTorch.</div>
+          <div class="blog-card__tags"><span class="blog-tag">Deep Learning</span><span class="blog-tag">Transformers</span><span class="blog-tag">PyTorch</span></div>
+          <div class="blog-card__more">Read more &#8594;</div>
+        </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pf-footer">
+    <div class="container">
+      <p>Built with HTML, CSS &amp; Python &middot;
+         <a href="https://github.com/farhanzafrani/farhanzafrani.github.io"
+            target="_blank" rel="noopener">Source</a>
+         &middot; &copy; 2025 Muhammad Farhan
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/portfolio.js" defer></script>
+</body>
+</html>

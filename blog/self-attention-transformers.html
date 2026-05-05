@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Attention in Transformers Explained — Muhammad Farhan</title>
+  <meta name="description" content="A visual walkthrough of the self-attention mechanism — the core building block of Transformer models — with step-by-step implementation in PyTorch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/portfolio.css">
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <nav class="pf-nav" role="navigation" aria-label="Main navigation">
+    <div class="pf-nav__inner">
+      <a class="pf-nav__logo" href="../index.html" aria-label="Home">MF</a>
+      <ul class="pf-nav__links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li><li><a href="../index.html#experience">Experience</a></li><li><a href="../index.html#projects">Projects</a></li><li><a href="../index.html#skills">Skills</a></li><li><a href="../index.html#education">Education</a></li><li><a href="../index.html#contact">Contact</a></li><li><a href="../blog.html" class="active">Blog</a></li>
+      </ul>
+      <button class="pf-nav__burger" aria-label="Toggle menu"
+              aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pf-main">
+    <article class="post-page">
+      <div class="post-wrap">
+        <a class="post-back" href="../blog.html">&#8592; Back to Blog</a>
+        <header class="post-header">
+          <div class="post-meta">
+            <span class="post-date">2024-09-01</span>
+          </div>
+          <h1 class="post-title">Self-Attention in Transformers Explained</h1>
+          <div class="post-tags"><span class="blog-tag">Deep Learning</span><span class="blog-tag">Transformers</span><span class="blog-tag">PyTorch</span></div>
+        </header>
+        <div class="post-content">
+<h2>What is Self-Attention?</h2>
+
+<p>Self-attention lets each token in a sequence look at every other token and decide</p>
+<p>how much it should &quot;attend&quot; to them when building its own representation.</p>
+<p>Unlike RNNs, this happens in parallel — making Transformers highly efficient on GPUs.</p>
+
+<h2>The Q, K, V Intuition</h2>
+
+<p>Every token produces three vectors:</p>
+
+<ul>
+<li><strong>Query (Q)</strong> — &quot;What am I looking for?&quot;</li>
+<li><strong>Key (K)</strong> — &quot;What do I contain?&quot;</li>
+<li><strong>Value (V)</strong> — &quot;What do I actually pass along?&quot;</li>
+</ul>
+
+<p>Attention is computed as:</p>
+
+<pre><code>Attention(Q, K, V) = softmax( QKᵀ / √dₖ ) · V</code></pre>
+
+<p>The dot product <code>QKᵀ</code> scores how relevant each key is to the current query.</p>
+<p>Dividing by <code>√dₖ</code> keeps gradients stable when the embedding dimension is large.</p>
+
+<h2>PyTorch Implementation</h2>
+
+<pre><code class="language-python">import torch
+import torch.nn.functional as F
+
+def self_attention(x, W_q, W_k, W_v):
+    Q = x @ W_q          # (seq, d_model) → (seq, d_k)
+    K = x @ W_k
+    V = x @ W_v
+
+    d_k = Q.shape[-1]
+    scores = Q @ K.transpose(-2, -1) / d_k ** 0.5   # (seq, seq)
+    weights = F.softmax(scores, dim=-1)
+    return weights @ V                               # (seq, d_v)</code></pre>
+
+<h2>Multi-Head Attention</h2>
+
+<p>Running <code>h</code> attention heads in parallel and concatenating lets the model</p>
+<p>attend to different representation subspaces simultaneously:</p>
+
+<pre><code class="language-python"># Split d_model into h heads, run attention per head, concat + project
+MultiHead(Q,K,V) = Concat(head_1, ..., head_h) · W_o</code></pre>
+
+<h2>Why Does It Work?</h2>
+
+<p>Self-attention is permutation-equivariant — it has no built-in sense of order.</p>
+<p>That is why Transformers add <strong>positional encodings</strong> before the attention layers.</p>
+<p>But it means the model can capture long-range dependencies in a single pass,</p>
+<p>something that takes many steps for RNNs.</p>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="pf-footer">
+    <div class="container">
+      <p>Built with HTML, CSS &amp; Python &middot;
+         <a href="https://github.com/farhanzafrani/farhanzafrani.github.io"
+            target="_blank" rel="noopener">Source</a>
+         &middot; &copy; 2025 Muhammad Farhan
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/portfolio.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+personal:
+  first_name: Muhammad
+  last_name:  Farhan
+  title:      AI & Automation Engineer
+  email:      farhanzafrani@gmail.com
+  linkedin:   farhan-zafrani
+  github:     farhanzafrani
+  kaggle:     https://www.kaggle.com/farhanzafrani
+  location:   Munich, Germany & Multan, Pakistan
+  company:    SOCO Engineers
+  company_url: https://www.soco-engineers.de/
+  education_short: BE Mechanical Engineering, NUST
+  languages:  English, Urdu, Pashto
+  description: AI and Automation Engineer at SOCO Engineers, specialising in Computational CAE, Machine Learning, and FEA automation using GNNs.
+
+hero:
+  typed_lines:
+    - "AI & Automation Engineer"
+    - "FEA Automation Specialist"
+    - "Graph Neural Network Developer"
+    - "BMW Group Automation Expert"
+    - "Building intelligent CAE pipelines"
+  stats:
+    - num: "2+"
+      label: Years Exp.
+    - num: "5+"
+      label: Projects
+    - num: BMW
+      label: Group Client
+  badges:
+    - {text: PyTorch, color: blue}
+    - {text: GNN,     color: teal}
+    - {text: FEA,     color: green}
+
+about:
+  paragraphs:
+    - >
+      I am an <strong>AI and Automation Engineer</strong> working with
+      <a href="https://www.soco-engineers.de/" target="_blank" rel="noopener">SOCO ENGINEERS</a>,
+      where I sit at the intersection of <strong>Mechanical Engineering</strong>
+      and <strong>Machine Learning</strong>. My work spans computational CAE automation,
+      data-driven simulation pipelines, and intelligent robotics.
+    - >
+      I developed a <strong>RoboGlove</strong> for stroke rehabilitation, built
+      end-to-end preprocessing &amp; postprocessing automation for
+      <strong>BMW Group</strong> simulation workflows, and am currently advancing
+      <strong>FEA process automation using Graph Neural Networks (GNN)</strong>.
+  interests:
+    - {text: "Computational CAE",        color: blue}
+    - {text: "FEA Automation",           color: blue}
+    - {text: "Simulation Pipelines",     color: blue}
+    - {text: "Machine Learning",         color: green}
+    - {text: "Graph Neural Networks",    color: green}
+    - {text: "AI-CAE Integration",       color: green}
+    - {text: "Robotics & Rehabilitation", color: orange}
+    - {text: "HPC & Scientific Computing", color: orange}
+    - {text: "BMW Group Automation",     color: purple}
+    - {text: "Data-Driven Engineering",  color: teal}
+
+experience:
+  - year: "2023 — Present"
+    role: AI and Automation Engineer
+    org:  SOCO Engineers, Munich / Multan
+    points:
+      - Automating BMW Group simulation preprocessing & postprocessing workflows using Python and CAE APIs.
+      - Advancing FEA process automation using Graph Neural Networks (GNN) for structural analysis.
+      - Building intelligent data pipelines connecting HPC simulation outputs to ML training datasets.
+
+  - year: "2022 — 2023"
+    role: Research Assistant
+    org:  Human System Lab, SMME, NUST Islamabad
+    points:
+      - Developed RoboGlove — a wearable robotic device for stroke patient motor rehabilitation.
+      - Integrated sensor arrays with embedded control systems for real-time haptic feedback.
+
+  - year: "Jun 2022 — Sep 2022"
+    role: Machine Learning Intern
+    org:  SMME, NUST Islamabad
+    points:
+      - Applied ML algorithms for engineering data analysis and predictive modelling tasks.
+
+projects:
+  - title: Coccidiosis Disease Prediction
+    description: Complete end-to-end ML project with MLOps pipelines for predicting Coccidiosis disease from chicken fecal images.
+    img: assets/img/project_1.png
+    category: computer vision
+    github: https://github.com/farhanzafrani/Coccidiosis-Disease-Prediction-in-Using-Chicken-Fecals
+
+  - title: Transformer from Scratch
+    description: Transformer implementation from scratch based on the "Attention Is All You Need" paper using PyTorch.
+    img: assets/img/transformer_architecture.png
+    category: transformers
+    github: https://github.com/farhanzafrani/Transformer_from_scratch
+
+  - title: Multimodal Vision Language Model
+    description: Implementing a Multimodal Vision Language Model for handling both image and text simultaneously using PyTorch.
+    img: assets/img/7.jpg
+    category: transformers
+    github: https://github.com/farhanzafrani/Coding-a-Multimodal-Vision-Language-Model-from-scratch-in-PyTorch
+
+  - title: YOLOv3 from Scratch
+    description: Implementing YOLOv3 object detection from scratch using Python and PyTorch.
+    img: assets/img/volo_v3.jpg
+    category: computer vision
+    github: https://github.com/farhanzafrani/YOLOv3-from-scratch
+
+  - title: Spotify Database with FastAPI
+    description: Data pipeline from a single source to create a database with full CRUD operations using FastAPI and SQLite.
+    img: ""
+    category: data engineering
+    github: https://github.com/farhanzafrani/Spotify-Database-Development-using-FastAPI-and-SQlite
+
+skills:
+  - title: "CAE & Simulation"
+    color: blue
+    items: ["Abaqus · LS-DYNA", "OptiStruct · HyperMesh", "FEA Preprocessing", "Mesh Automation", "Result Postprocessing"]
+
+  - title: "AI & Machine Learning"
+    color: green
+    items: ["Graph Neural Networks", "Surrogate Modeling", "Neural Networks (ANN)", "SVM · Regression", "Scikit-learn · XGBoost"]
+
+  - title: "Deep Learning"
+    color: teal
+    items: ["PyTorch · TensorFlow", "Transformers", "Vision Language Models", "YOLO / Detection", "Transfer Learning"]
+
+  - title: "Programming"
+    color: orange
+    items: ["Python (NumPy, Pandas)", "C++ · Bash", "FastAPI · SQLite", "CI/CD Pipelines", "Data Engineering"]
+
+  - title: "Robotics & Embedded"
+    color: purple
+    items: ["RoboGlove Development", "Sensor Integration", "Embedded Systems", "Control Systems", "Motor Rehabilitation"]
+
+  - title: "HPC & Computing"
+    color: pink
+    items: ["HPC Cluster Workflows", "Parallel Computing", "Solver Integration", "Post-Processing Systems", "Scalable Pipelines"]
+
+education:
+  - year: "2019 — 2023"
+    degree: BE Mechanical Engineering
+    institution: National University of Sciences and Technology (NUST), Islamabad
+
+  - year: "2017 — 2019"
+    degree: High School / Intermediate
+    institution: Ali Trust College, Islamabad

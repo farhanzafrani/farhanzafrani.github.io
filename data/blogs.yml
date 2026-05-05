@@ -1,0 +1,225 @@
+posts:
+
+  - title: "Self-Attention in Transformers Explained"
+    slug: self-attention-transformers
+    date: "2024-09-01"
+    tags: [Deep Learning, Transformers, PyTorch]
+    excerpt: >
+      A visual walkthrough of the self-attention mechanism — the core building
+      block of Transformer models — with step-by-step implementation in PyTorch.
+    content: |
+      ## What is Self-Attention?
+
+      Self-attention lets each token in a sequence look at every other token and decide
+      how much it should "attend" to them when building its own representation.
+      Unlike RNNs, this happens in parallel — making Transformers highly efficient on GPUs.
+
+      ## The Q, K, V Intuition
+
+      Every token produces three vectors:
+
+      - **Query (Q)** — "What am I looking for?"
+      - **Key (K)** — "What do I contain?"
+      - **Value (V)** — "What do I actually pass along?"
+
+      Attention is computed as:
+
+      ```
+      Attention(Q, K, V) = softmax( QKᵀ / √dₖ ) · V
+      ```
+
+      The dot product `QKᵀ` scores how relevant each key is to the current query.
+      Dividing by `√dₖ` keeps gradients stable when the embedding dimension is large.
+
+      ## PyTorch Implementation
+
+      ```python
+      import torch
+      import torch.nn.functional as F
+
+      def self_attention(x, W_q, W_k, W_v):
+          Q = x @ W_q          # (seq, d_model) → (seq, d_k)
+          K = x @ W_k
+          V = x @ W_v
+
+          d_k = Q.shape[-1]
+          scores = Q @ K.transpose(-2, -1) / d_k ** 0.5   # (seq, seq)
+          weights = F.softmax(scores, dim=-1)
+          return weights @ V                               # (seq, d_v)
+      ```
+
+      ## Multi-Head Attention
+
+      Running `h` attention heads in parallel and concatenating lets the model
+      attend to different representation subspaces simultaneously:
+
+      ```python
+      # Split d_model into h heads, run attention per head, concat + project
+      MultiHead(Q,K,V) = Concat(head_1, ..., head_h) · W_o
+      ```
+
+      ## Why Does It Work?
+
+      Self-attention is permutation-equivariant — it has no built-in sense of order.
+      That is why Transformers add **positional encodings** before the attention layers.
+      But it means the model can capture long-range dependencies in a single pass,
+      something that takes many steps for RNNs.
+
+  - title: "Einstein Summation (einsum) for Multi-Dimensional Arrays"
+    slug: einsum-explained
+    date: "2024-10-20"
+    tags: [Python, NumPy, Linear Algebra]
+    excerpt: >
+      einsum notation lets you write complex tensor contractions — matrix
+      multiplications, batch operations, traces — in one readable line.
+      Here is how to master it.
+    content: |
+      ## Why einsum?
+
+      NumPy and PyTorch's `einsum` function lets you express any combination of
+      tensor contractions, transposes, and sums using a compact index notation
+      inspired by Einstein's summation convention.
+
+      Instead of:
+
+      ```python
+      # Batched matrix multiply — verbose
+      result = torch.bmm(A, B)
+      ```
+
+      You write:
+
+      ```python
+      result = torch.einsum('bik,bkj->bij', A, B)
+      ```
+
+      ## Reading the Notation
+
+      The string `'bik,bkj->bij'` is read as:
+
+      | Part | Meaning |
+      |---|---|
+      | `bik` | First tensor has axes batch, i, k |
+      | `bkj` | Second tensor has axes batch, k, j |
+      | `->bij` | Output has axes batch, i, j |
+      | `k` absent in output | Sum over k (contraction) |
+
+      ## Common Patterns
+
+      ```python
+      # Matrix multiply
+      torch.einsum('ij,jk->ik', A, B)
+
+      # Batch matrix multiply
+      torch.einsum('bij,bjk->bik', A, B)
+
+      # Dot product
+      torch.einsum('i,i->', a, b)
+
+      # Outer product
+      torch.einsum('i,j->ij', a, b)
+
+      # Trace
+      torch.einsum('ii->', A)
+
+      # Transpose
+      torch.einsum('ij->ji', A)
+
+      # Element-wise then sum (like torch.sum(A * B))
+      torch.einsum('ij,ij->', A, B)
+      ```
+
+      ## Practical Example — Attention Scores
+
+      The scaled dot-product attention score matrix is a perfect einsum use case:
+
+      ```python
+      # Q: (batch, heads, seq, d_k)
+      # K: (batch, heads, seq, d_k)
+      scores = torch.einsum('bhid,bhjd->bhij', Q, K) / d_k ** 0.5
+      ```
+
+      Clean, explicit, and often faster than equivalent `torch.matmul` with
+      reshaping because einsum can fuse operations under the hood.
+
+      ## Tips
+
+      - Shared indices that appear in both inputs but not the output are **contracted** (summed over).
+      - Indices only in one input are **free** — they pass through to the output.
+      - Use `opt_einsum` for optimal contraction order on large tensors.
+
+  - title: "Unaligned Multi-Modal Transformers"
+    slug: unaligned-multi-modal-transformers
+    date: "2024-10-25"
+    tags: [Transformers, Vision, Research]
+    excerpt: >
+      Most vision-language models assume tight alignment between image patches and
+      text tokens. What happens when we relax that constraint? A look at unaligned
+      multi-modal architectures and why they matter.
+    content: |
+      ## The Alignment Assumption
+
+      Classical vision-language models (e.g. CLIP, ALIGN) are trained with paired
+      data — each image has an exactly matching caption. Contrastive loss pulls
+      matching pairs together and pushes non-matching pairs apart in embedding space.
+
+      This works well but has a hard requirement: **you need aligned pairs at scale**.
+
+      ## What "Unaligned" Means
+
+      Unaligned multi-modal learning drops the one-to-one correspondence requirement.
+      Instead of needing `(image_i, caption_i)` pairs, the model can learn from:
+
+      - Loosely related documents and images
+      - Interleaved web data (image anywhere in an article)
+      - Multiple images per text or vice versa
+
+      ## Architecture Sketch
+
+      ```
+      Image → Patch Encoder → Visual Tokens  ─┐
+                                               ├→ Cross-Modal Transformer → Output
+      Text  → Token Encoder → Text Tokens   ──┘
+      ```
+
+      The key change: the cross-attention layers in the transformer no longer assume
+      a positional correspondence between visual and text tokens.
+      A **soft routing** mechanism (learnable or attention-based) decides which
+      visual tokens are relevant for each text token at each layer.
+
+      ## Why It Matters for CAE
+
+      In engineering simulation contexts, we often have:
+
+      - Geometry screenshots + unstructured solver notes
+      - Mesh images + tabular result summaries
+      - CAD renders + informal design descriptions
+
+      None of these are tightly aligned. Unaligned multi-modal models could enable
+      automated report understanding, anomaly detection from mixed media datasets,
+      and richer surrogate model inputs — without requiring expensive annotation pipelines.
+
+      ## Implementation (Simplified)
+
+      ```python
+      class UnalignedCrossAttention(nn.Module):
+          def __init__(self, d_model, n_heads):
+              super().__init__()
+              self.attn = nn.MultiheadAttention(d_model, n_heads, batch_first=True)
+              self.router = nn.Linear(d_model, 1)   # soft token selector
+
+          def forward(self, text_tokens, visual_tokens):
+              # Route: weight visual tokens by relevance
+              weights = torch.softmax(self.router(visual_tokens), dim=1)
+              attended_visual = (visual_tokens * weights).sum(dim=1, keepdim=True)
+              out, _ = self.attn(text_tokens, attended_visual.expand_as(text_tokens),
+                                 attended_visual.expand_as(text_tokens))
+              return out
+      ```
+
+      ## Current State of Research
+
+      Models like **Flamingo**, **BLIP-2**, and **LLaVA** all handle varying degrees
+      of alignment looseness. The trend is towards more flexible architectures that
+      treat modalities as interchangeable token streams — a direction that makes
+      multi-modal models far more practical for real-world, messy datasets.

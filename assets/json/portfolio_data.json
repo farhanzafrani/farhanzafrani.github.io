@@ -1,0 +1,112 @@
+{
+  "experience": [
+    {
+      "title": "AI and Automation Engineer",
+      "institution": "SOCO Engineers, Multan, Pakistan",
+      "year": "2023 - Present",
+      "description": [
+        "Automating BMW Group simulation preprocessing and postprocessing workflows.",
+        "Working on FEA process automation using Graph Neural Networks (GNN)."
+      ]
+    },
+    {
+      "title": "Research Assistant",
+      "institution": "Human System Lab, SMME, NUST Islamabad",
+      "year": "2022 - 2023",
+      "description": [
+        "Developed RoboGlove for stroke patient rehabilitation."
+      ]
+    },
+    {
+      "title": "Machine Learning Intern",
+      "institution": "SMME, NUST Islamabad",
+      "year": "Jun. 2022 - Sept. 2022"
+    }
+  ],
+  "education": [
+    {
+      "title": "BE Mechanical Engineering",
+      "institution": "National University of Sciences and Technology, Islamabad",
+      "year": 2023
+    },
+    {
+      "title": "High School / Intermediate",
+      "institution": "Ali Trust College, Islamabad",
+      "year": 2019
+    }
+  ],
+  "projects": [
+    {
+      "title": "Coccidiosis Disease Prediction Using Chicken Fecals",
+      "description": "It's a complete end to end ML project that include MLOps as well.",
+      "img": "assets/img/project_1.png",
+      "category": "computer vision",
+      "importance": 1,
+      "github": "https://github.com/farhanzafrani/Coccidiosis-Disease-Prediction-in-Using-Chicken-Fecals",
+      "url": "/1_project/",
+      "body": ""
+    },
+    {
+      "title": "Transformer from Scratch",
+      "description": "Transformer implementation from scratch according to `Attention all you need` paper. For development, I will use pytorch.",
+      "img": "assets/img/transformer_architecture.png",
+      "category": "transformers",
+      "importance": 2,
+      "github": "https://github.com/farhanzafrani/Transformer_from_scratch",
+      "url": "/3_project/",
+      "body": ""
+    },
+    {
+      "title": "Multimodel Vision Language Model from scratch",
+      "description": "Implementing Multimodel Vision Language Model for handling both image and text data at a time using Pytorch",
+      "img": "assets/img/7.jpg",
+      "category": "transformers",
+      "importance": 3,
+      "github": "https://github.com/farhanzafrani/Coding-a-Multimodal-Vision-Language-Model-from-scratch-in-PyTorch",
+      "url": "/2_project/",
+      "body": ""
+    },
+    {
+      "title": "YOLOv3-from-scratch",
+      "description": "Implementing YOLOv3 from scratch using Python and PyTorch.",
+      "img": "assets/img/volo_v3.jpg",
+      "category": "computer vision",
+      "importance": 4,
+      "github": "https://github.com/farhanzafrani/YOLOv3-from-scratch",
+      "url": "/4_project/",
+      "body": "Currently under development, working on it part-time after office hours."
+    },
+    {
+      "title": "Spotify Database Development using FastAPI and SQlite",
+      "description": "This project portrays how to prepare the data from a single source to create a database and then perform CRUD operations on it.",
+      "img": null,
+      "category": "data analysis",
+      "importance": 5,
+      "github": "https://github.com/farhanzafrani/Spotify-Database-Development-using-FastAPI-and-SQlite",
+      "url": "/5_project/",
+      "body": "Work in progress. Full details will be added once the project is complete."
+    }
+  ],
+  "skills": [
+    {
+      "title": "AI and Mathematics",
+      "items": [
+        "Machine Learning and Deep Learning",
+        "Graph Neural Networks"
+      ]
+    },
+    {
+      "title": "Computational Sciences and Engineering",
+      "items": [
+        "Finite Element Analysis (FEA)",
+        "CAE Preprocessing and Postprocessing"
+      ]
+    }
+  ],
+  "other": [
+    "Teaching",
+    "Social Work",
+    "Sports",
+    "Traveling"
+  ]
+}

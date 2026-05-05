@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einstein Summation (einsum) for Multi-Dimensional Arrays — Muhammad Farhan</title>
+  <meta name="description" content="einsum notation lets you write complex tensor contractions — matrix multiplications, batch operations, traces — in one readable line. Here is how to master it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/portfolio.css">
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <nav class="pf-nav" role="navigation" aria-label="Main navigation">
+    <div class="pf-nav__inner">
+      <a class="pf-nav__logo" href="../index.html" aria-label="Home">MF</a>
+      <ul class="pf-nav__links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li><li><a href="../index.html#experience">Experience</a></li><li><a href="../index.html#projects">Projects</a></li><li><a href="../index.html#skills">Skills</a></li><li><a href="../index.html#education">Education</a></li><li><a href="../index.html#contact">Contact</a></li><li><a href="../blog.html" class="active">Blog</a></li>
+      </ul>
+      <button class="pf-nav__burger" aria-label="Toggle menu"
+              aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pf-main">
+    <article class="post-page">
+      <div class="post-wrap">
+        <a class="post-back" href="../blog.html">&#8592; Back to Blog</a>
+        <header class="post-header">
+          <div class="post-meta">
+            <span class="post-date">2024-10-20</span>
+          </div>
+          <h1 class="post-title">Einstein Summation (einsum) for Multi-Dimensional Arrays</h1>
+          <div class="post-tags"><span class="blog-tag">Python</span><span class="blog-tag">NumPy</span><span class="blog-tag">Linear Algebra</span></div>
+        </header>
+        <div class="post-content">
+<h2>Why einsum?</h2>
+
+<p>NumPy and PyTorch&#x27;s <code>einsum</code> function lets you express any combination of</p>
+<p>tensor contractions, transposes, and sums using a compact index notation</p>
+<p>inspired by Einstein&#x27;s summation convention.</p>
+
+<p>Instead of:</p>
+
+<pre><code class="language-python"># Batched matrix multiply — verbose
+result = torch.bmm(A, B)</code></pre>
+
+<p>You write:</p>
+
+<pre><code class="language-python">result = torch.einsum(&#x27;bik,bkj-&gt;bij&#x27;, A, B)</code></pre>
+
+<h2>Reading the Notation</h2>
+
+<p>The string <code>&#x27;bik,bkj-&gt;bij&#x27;</code> is read as:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Part</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><code>bik</code></td><td>First tensor has axes batch, i, k</td></tr>
+<tr><td><code>bkj</code></td><td>Second tensor has axes batch, k, j</td></tr>
+<tr><td><code>-&gt;bij</code></td><td>Output has axes batch, i, j</td></tr>
+<tr><td><code>k</code> absent in output</td><td>Sum over k (contraction)</td></tr>
+</tbody>
+</table></div>
+
+<h2>Common Patterns</h2>
+
+<pre><code class="language-python"># Matrix multiply
+torch.einsum(&#x27;ij,jk-&gt;ik&#x27;, A, B)
+
+# Batch matrix multiply
+torch.einsum(&#x27;bij,bjk-&gt;bik&#x27;, A, B)
+
+# Dot product
+torch.einsum(&#x27;i,i-&gt;&#x27;, a, b)
+
+# Outer product
+torch.einsum(&#x27;i,j-&gt;ij&#x27;, a, b)
+
+# Trace
+torch.einsum(&#x27;ii-&gt;&#x27;, A)
+
+# Transpose
+torch.einsum(&#x27;ij-&gt;ji&#x27;, A)
+
+# Element-wise then sum (like torch.sum(A * B))
+torch.einsum(&#x27;ij,ij-&gt;&#x27;, A, B)</code></pre>
+
+<h2>Practical Example — Attention Scores</h2>
+
+<p>The scaled dot-product attention score matrix is a perfect einsum use case:</p>
+
+<pre><code class="language-python"># Q: (batch, heads, seq, d_k)
+# K: (batch, heads, seq, d_k)
+scores = torch.einsum(&#x27;bhid,bhjd-&gt;bhij&#x27;, Q, K) / d_k ** 0.5</code></pre>
+
+<p>Clean, explicit, and often faster than equivalent <code>torch.matmul</code> with</p>
+<p>reshaping because einsum can fuse operations under the hood.</p>
+
+<h2>Tips</h2>
+
+<ul>
+<li>Shared indices that appear in both inputs but not the output are <strong>contracted</strong> (summed over).</li>
+<li>Indices only in one input are <strong>free</strong> — they pass through to the output.</li>
+<li>Use <code>opt_einsum</code> for optimal contraction order on large tensors.</li>
+</ul>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="pf-footer">
+    <div class="container">
+      <p>Built with HTML, CSS &amp; Python &middot;
+         <a href="https://github.com/farhanzafrani/farhanzafrani.github.io"
+            target="_blank" rel="noopener">Source</a>
+         &middot; &copy; 2025 Muhammad Farhan
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/portfolio.js" defer></script>
+</body>
+</html>
