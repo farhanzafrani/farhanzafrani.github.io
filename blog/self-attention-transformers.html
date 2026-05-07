@@ -53,6 +53,8 @@
 <p>how much it should &quot;attend&quot; to them when building its own representation.</p>
 <p>Unlike RNNs, this happens in parallel — making Transformers highly efficient on GPUs.</p>
 
+<figure class="blog-figure"><img src="../assets/img/transformer_architecture.png" alt="Transformer Architecture" loading="lazy"><figcaption>Transformer Architecture</figcaption></figure>
+
 <h2>The Q, K, V Intuition</h2>
 
 <p>Every token produces three vectors:</p>
@@ -92,6 +94,8 @@ def self_attention(x, W_q, W_k, W_v):
 
 <pre><code class="language-python"># Split d_model into h heads, run attention per head, concat + project
 MultiHead(Q,K,V) = Concat(head_1, ..., head_h) · W_o</code></pre>
+
+<figure class="blog-figure"><img src="../assets/img/transformer_with_pytorch.png" alt="Transformer with PyTorch" loading="lazy"><figcaption>Transformer with PyTorch</figcaption></figure>
 
 <h2>Why Does It Work?</h2>
 

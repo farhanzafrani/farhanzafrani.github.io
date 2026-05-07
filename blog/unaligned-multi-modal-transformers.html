@@ -55,6 +55,8 @@
 
 <p>This works well but has a hard requirement: <strong>you need aligned pairs at scale</strong>.</p>
 
+<figure class="blog-figure"><img src="../assets/img/multi-model-transformer.png" alt="Multi-Modal Transformer" loading="lazy"><figcaption>Multi-Modal Transformer</figcaption></figure>
+
 <h2>What &quot;Unaligned&quot; Means</h2>
 
 <p>Unaligned multi-modal learning drops the one-to-one correspondence requirement.</p>
@@ -76,6 +78,8 @@ Text  → Token Encoder → Text Tokens   ──┘</code></pre>
 <p>a positional correspondence between visual and text tokens.</p>
 <p>A <strong>soft routing</strong> mechanism (learnable or attention-based) decides which</p>
 <p>visual tokens are relevant for each text token at each layer.</p>
+
+<figure class="blog-figure"><img src="../assets/img/cross_model.png" alt="Cross-Modal Architecture" loading="lazy"><figcaption>Cross-Modal Architecture</figcaption></figure>
 
 <h2>Why It Matters for CAE</h2>
 

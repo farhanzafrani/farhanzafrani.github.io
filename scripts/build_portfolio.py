@@ -24,12 +24,13 @@ try:
 except ImportError:
     sys.exit("PyYAML required:  pip install pyyaml")
 
-ROOT     = Path(__file__).resolve().parent.parent
-DATA     = ROOT / "data" / "portfolio.yml"
-BLOGS    = ROOT / "data" / "blogs.yml"
-OUT      = ROOT / "index.html"
-BLOG_OUT = ROOT / "blog.html"
-BLOG_DIR = ROOT / "blog"
+ROOT        = Path(__file__).resolve().parent.parent
+DATA        = ROOT / "data" / "portfolio.yml"
+BLOGS       = ROOT / "data" / "blogs.yml"
+CONTENT_DIR = ROOT / "content" / "blogs"
+OUT         = ROOT / "index.html"
+BLOG_OUT    = ROOT / "blog.html"
+BLOG_DIR    = ROOT / "blog"
 
 
 # ── Utilities ──────────────────────────────────────────────────────
@@ -41,13 +42,31 @@ def e(s: object) -> str:
 
 # ── Markdown → HTML ────────────────────────────────────────────────
 
-def _inline_md(text: str) -> str:
-    """Convert inline markdown (bold, italic, code) to HTML on a single text string."""
+def _fmt(text: str) -> str:
+    """Escape and apply bold/italic/code/link to already-safe text segments."""
     text = _html.escape(text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*',     r'<em>\1</em>',         text)
     text = re.sub(r'`([^`]+)`',     lambda m: f'<code>{m.group(1)}</code>', text)
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)',
+                  lambda m: f'<a href="{_html.escape(m.group(2))}" target="_blank" rel="noopener">{_html.escape(m.group(1))}</a>',
+                  text)
     return text
+
+
+def _inline_md(text: str) -> str:
+    """Convert inline markdown to HTML, preserving image tags before escaping."""
+    img_re = re.compile(r'!\[([^\]]*)\]\(([^)]+)\)')
+    parts = []
+    last = 0
+    for m in img_re.finditer(text):
+        parts.append(_fmt(text[last:m.start()]))
+        alt = _html.escape(m.group(1))
+        src = _html.escape(m.group(2).strip())
+        parts.append(f'<img src="{src}" alt="{alt}" loading="lazy" class="inline-img">')
+        last = m.end()
+    parts.append(_fmt(text[last:]))
+    return ''.join(parts)
 
 
 def _render_table(lines: list) -> str:
@@ -73,8 +92,24 @@ def _render_table(lines: list) -> str:
     return html
 
 
+_YT_RE = re.compile(
+    r'^https?://(?:www\.)?(?:youtube\.com/watch\?(?:[^&]*&)*v=|youtu\.be/)([\w-]+)')
+
+def _youtube_embed(url: str) -> str:
+    m = _YT_RE.match(url)
+    if not m:
+        return f'<p><a href="{_html.escape(url)}" target="_blank" rel="noopener">{_html.escape(url)}</a></p>'
+    vid = m.group(1)
+    return (f'<div class="video-embed">'
+            f'<iframe src="https://www.youtube.com/embed/{vid}" '
+            f'title="YouTube video" frameborder="0" '
+            f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+            f'allowfullscreen loading="lazy"></iframe>'
+            f'</div>')
+
+
 def md_to_html(text: str) -> str:
-    """Convert a markdown string to HTML. Handles headings, lists, code blocks, tables, paragraphs."""
+    """Convert markdown to HTML. Supports headings, lists, code blocks, tables, images, videos."""
     lines = text.split('\n')
     out = []
     i = 0
@@ -102,6 +137,18 @@ def md_to_html(text: str) -> str:
         elif stripped.startswith('# '):
             out.append(f'<h1>{_inline_md(stripped[2:])}</h1>')
 
+        # Block image: ![alt](src) on its own line → <figure>
+        elif re.match(r'^!\[', stripped) and re.match(r'^!\[[^\]]*\]\([^)]+\)\s*$', stripped):
+            m = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)', stripped)
+            alt = _html.escape(m.group(1))
+            src = _html.escape(m.group(2).strip())
+            caption = f'<figcaption>{alt}</figcaption>' if alt else ''
+            out.append(f'<figure class="blog-figure"><img src="{src}" alt="{alt}" loading="lazy">{caption}</figure>')
+
+        # Standalone YouTube URL on its own line → embed
+        elif _YT_RE.match(stripped):
+            out.append(_youtube_embed(stripped))
+
         # Table (consume all consecutive | lines)
         elif stripped.startswith('|'):
             table_lines = []
@@ -120,6 +167,20 @@ def md_to_html(text: str) -> str:
             out.append('<ul>\n' + '\n'.join(items) + '\n</ul>')
             continue
 
+        # Ordered list
+        elif re.match(r'^\d+\.\s', stripped):
+            items = []
+            while i < len(lines) and re.match(r'^\d+\.\s', lines[i].strip()):
+                text_part = re.sub(r'^\d+\.\s', '', lines[i].strip())
+                items.append(f'<li>{_inline_md(text_part)}</li>')
+                i += 1
+            out.append('<ol>\n' + '\n'.join(items) + '\n</ol>')
+            continue
+
+        # Horizontal rule
+        elif re.match(r'^---+$', stripped) or re.match(r'^\*\*\*+$', stripped):
+            out.append('<hr>')
+
         # Empty line
         elif not stripped:
             out.append('')
@@ -131,6 +192,35 @@ def md_to_html(text: str) -> str:
         i += 1
 
     return '\n'.join(out)
+
+
+# ── Markdown file loading ──────────────────────────────────────────
+
+def parse_frontmatter(text: str) -> tuple:
+    """Return (meta_dict, body_str) from a markdown file with optional YAML front matter."""
+    if not text.startswith('---'):
+        return {}, text
+    end = text.find('\n---', 3)
+    if end == -1:
+        return {}, text
+    meta = yaml.safe_load(text[3:end]) or {}
+    body = text[end + 4:].lstrip('\n')
+    return meta, body
+
+
+def load_markdown_posts() -> list:
+    """Load posts from content/blogs/*.md (YAML front matter + markdown body)."""
+    if not CONTENT_DIR.exists():
+        return []
+    posts = []
+    for md_file in sorted(CONTENT_DIR.glob('*.md')):
+        text = md_file.read_text(encoding='utf-8')
+        meta, body = parse_frontmatter(text)
+        if not meta.get('slug'):
+            meta['slug'] = md_file.stem
+        meta['content'] = body
+        posts.append(meta)
+    return posts
 
 
 # ── Shared partials ────────────────────────────────────────────────
@@ -626,15 +716,19 @@ def build() -> None:
     OUT.write_text(page, encoding="utf-8")
     print(f"✅  index.html  ({len(page.encode()) // 1024} KB)")
 
-    # Blog pages
-    if not BLOGS.exists():
-        print("ℹ️   data/blogs.yml not found — skipping blog generation")
+    # Blog pages — prefer content/blogs/*.md, fall back to data/blogs.yml
+    md_posts = load_markdown_posts()
+    if md_posts:
+        print(f"🔨  Loading {len(md_posts)} posts from content/blogs/ …")
+        posts = md_posts
+    elif BLOGS.exists():
+        print("🔨  Reading data/blogs.yml …")
+        with open(BLOGS, encoding="utf-8") as f:
+            blog_data = yaml.safe_load(f)
+        posts = blog_data.get("posts", [])
+    else:
+        print("ℹ️   No blog sources found — skipping blog generation")
         return
-
-    print("🔨  Reading data/blogs.yml …")
-    with open(BLOGS, encoding="utf-8") as f:
-        blog_data = yaml.safe_load(f)
-    posts = blog_data.get("posts", [])
 
     print(f"📝  Generating blog.html ({len(posts)} posts) …")
     BLOG_OUT.write_text(_blog_listing(posts, data["personal"]), encoding="utf-8")
