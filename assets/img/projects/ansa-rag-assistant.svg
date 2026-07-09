@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1e38"/>
+      <stop offset="55%" stop-color="#0d2233"/>
+      <stop offset="100%" stop-color="#0a1626"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#22d3a4" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#22d3a4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+
+  <!-- FEA mesh wireframe on a simple part silhouette -->
+  <g transform="translate(60,90)" stroke="#4fc3f7" stroke-opacity="0.75" stroke-width="1.1" fill="none">
+    <!-- triangulated mesh grid, slightly irregular -->
+    <path d="M0,120 L60,40 L140,20 L230,10 L320,25 L390,70 L420,140 L400,210 L330,250 L230,265 L120,250 L40,200 Z" stroke="#22d3a4" stroke-width="2"/>
+    <path d="M0,120 L140,20 M140,20 L230,10 M230,10 L320,25 M320,25 L390,70 M0,120 L120,120 M120,120 L140,20 M120,120 L230,10 M120,120 L230,265 M120,120 L40,200 M230,265 L230,120 M230,120 L230,10 M230,120 L320,25 M230,120 L400,210 M230,120 L330,250 M230,265 L330,250 M230,120 L120,120 M390,70 L400,210 M0,120 L40,200"/>
+  </g>
+
+  <!-- code / RAG panel -->
+  <g transform="translate(430,70)">
+    <rect width="310" height="300" rx="14" fill="#0f2248" stroke="#1c3a5c" stroke-width="1.5"/>
+    <text x="20" y="34" font-family="JetBrains Mono, monospace" font-size="12" fill="#00d0e8" font-weight="700">ansa_mesh_solver.py</text>
+    <g font-family="JetBrains Mono, monospace" font-size="12" fill="#8fb8cc">
+      <text x="20" y="66">base.CreateEntity(</text>
+      <text x="36" y="86">"ELEMENT", "TRIA3"</text>
+      <text x="20" y="106">)</text>
+      <text x="20" y="136" fill="#5a7a90"># mesh size: 2.4mm</text>
+      <text x="20" y="156" fill="#5a7a90"># solved via retrieved</text>
+      <text x="20" y="174" fill="#5a7a90"># ANSA API context</text>
+    </g>
+    <g transform="translate(20,196)">
+      <rect width="270" height="80" rx="8" fill="#22d3a4" opacity="0.10" stroke="#22d3a4" stroke-width="1.4"/>
+      <text x="14" y="24" font-family="JetBrains Mono, monospace" font-size="11" fill="#22d3a4" font-weight="700">RAG RETRIEVAL</text>
+      <text x="14" y="44" font-family="JetBrains Mono, monospace" font-size="10.5" fill="#9fe8cf">3 API refs matched</text>
+      <text x="14" y="60" font-family="JetBrains Mono, monospace" font-size="10.5" fill="#9fe8cf">mesh · morph · base</text>
+    </g>
+  </g>
+</svg>

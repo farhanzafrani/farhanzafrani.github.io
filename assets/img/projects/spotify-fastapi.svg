@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1e38"/>
+      <stop offset="55%" stop-color="#0f2622"/>
+      <stop offset="100%" stop-color="#0a1626"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#132a2a"/>
+      <stop offset="100%" stop-color="#0c1e38"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="35%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#22d3a4" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#22d3a4" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M0 34 L34 34 L34 0" fill="none" stroke="#ffffff" stroke-opacity="0.045"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#grid)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+
+  <!-- source: spotify-like track feed -->
+  <g transform="translate(80,150)">
+    <rect width="190" height="150" rx="12" fill="url(#panel)" stroke="#1c3a5c" stroke-width="1.5"/>
+    <circle cx="30" cy="30" r="14" fill="none" stroke="#22d3a4" stroke-width="2.4"/>
+    <path d="M23 22 v16 l14 -8 z" fill="#22d3a4"/>
+    <text x="54" y="35" font-family="JetBrains Mono, monospace" font-size="12" fill="#9fe8cf" font-weight="700">TRACK FEED</text>
+
+    <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#7fa8a0">
+      <rect x="16" y="56" width="158" height="24" rx="4" fill="#0a1626"/>
+      <text x="24" y="72">Blinding Lights</text>
+      <rect x="16" y="86" width="158" height="24" rx="4" fill="#0a1626"/>
+      <text x="24" y="102">As It Was</text>
+      <rect x="16" y="116" width="158" height="24" rx="4" fill="#0a1626"/>
+      <text x="24" y="132">Flowers</text>
+    </g>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#22d3a4" stroke-width="2.2" fill="none">
+    <line x1="278" y1="225" x2="335" y2="225"/>
+    <path d="M326 217 L335 225 L326 233"/>
+  </g>
+
+  <!-- FastAPI panel -->
+  <g transform="translate(345,110)">
+    <rect width="190" height="230" rx="12" fill="url(#panel)" stroke="#1c3a5c" stroke-width="1.5"/>
+    <path d="M95 18 L60 95 h30 l-15 65 55 -95 h-32 z" fill="#00d0e8" opacity="0.9"/>
+    <text x="30" y="140" font-family="JetBrains Mono, monospace" font-size="12" fill="#7fd4e8" font-weight="700" text-anchor="middle" transform="translate(65,0)">FastAPI</text>
+
+    <g font-family="JetBrains Mono, monospace" font-size="10.5">
+      <rect x="16" y="160" width="158" height="22" rx="4" fill="#22d3a4" opacity="0.12"/>
+      <text x="24" y="175" fill="#22d3a4" font-weight="700">GET /tracks</text>
+      <rect x="16" y="186" width="158" height="22" rx="4" fill="#4fc3f7" opacity="0.12"/>
+      <text x="24" y="201" fill="#4fc3f7" font-weight="700">POST /tracks</text>
+    </g>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#4fc3f7" stroke-width="2.2" fill="none">
+    <line x1="543" y1="225" x2="600" y2="225"/>
+    <path d="M591 217 L600 225 L591 233"/>
+  </g>
+
+  <!-- SQLite database -->
+  <g transform="translate(615,140)">
+    <path d="M0 20 C0 9 22 0 50 0 C78 0 100 9 100 20 L100 190 C100 201 78 210 50 210 C22 210 0 201 0 190 Z"
+          fill="#0f2248" stroke="#b48af0" stroke-width="2"/>
+    <path d="M0 20 C0 31 22 40 50 40 C78 40 100 31 100 20" fill="none" stroke="#b48af0" stroke-width="2"/>
+    <path d="M0 70 C0 81 22 90 50 90 C78 90 100 81 100 70" fill="none" stroke="#b48af0" stroke-opacity="0.55" stroke-width="1.6"/>
+    <path d="M0 120 C0 131 22 140 50 140 C78 140 100 131 100 120" fill="none" stroke="#b48af0" stroke-opacity="0.55" stroke-width="1.6"/>
+    <text x="50" y="185" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#d9c6f7" font-weight="700">SQLite</text>
+  </g>
+
+  <!-- CRUD tags along bottom -->
+  <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">
+    <g transform="translate(120,340)">
+      <rect width="62" height="26" rx="6" fill="#22d3a4" opacity="0.12" stroke="#22d3a4" stroke-width="1.2"/>
+      <text x="31" y="18" text-anchor="middle" fill="#22d3a4">CREATE</text>
+    </g>
+    <g transform="translate(200,340)">
+      <rect width="58" height="26" rx="6" fill="#4fc3f7" opacity="0.12" stroke="#4fc3f7" stroke-width="1.2"/>
+      <text x="29" y="18" text-anchor="middle" fill="#4fc3f7">READ</text>
+    </g>
+    <g transform="translate(276,340)">
+      <rect width="72" height="26" rx="6" fill="#ffb74d" opacity="0.12" stroke="#ffb74d" stroke-width="1.2"/>
+      <text x="36" y="18" text-anchor="middle" fill="#ffb74d">UPDATE</text>
+    </g>
+    <g transform="translate(366,340)">
+      <rect width="66" height="26" rx="6" fill="#f06292" opacity="0.12" stroke="#f06292" stroke-width="1.2"/>
+      <text x="33" y="18" text-anchor="middle" fill="#f06292">DELETE</text>
+    </g>
+  </g>
+</svg>

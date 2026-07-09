@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#170c2e"/>
+      <stop offset="55%" stop-color="#151033"/>
+      <stop offset="100%" stop-color="#0a1626"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#b48af0" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#b48af0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M0 34 L34 34 L34 0" fill="none" stroke="#ffffff" stroke-opacity="0.045"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#grid)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+
+  <!-- connections -->
+  <g stroke="#b48af0" stroke-opacity="0.55" stroke-width="1.6">
+    <line x1="400" y1="205" x2="190" y2="100"/>
+    <line x1="400" y1="205" x2="610" y2="100"/>
+    <line x1="400" y1="205" x2="190" y2="330"/>
+    <line x1="400" y1="205" x2="610" y2="330"/>
+  </g>
+
+  <!-- manager (center) -->
+  <g transform="translate(400,205)">
+    <circle r="46" fill="#0f2248" stroke="#b48af0" stroke-width="2.4"/>
+    <circle r="46" fill="#b48af0" opacity="0.12"/>
+    <path d="M-16 6 L-16 -8 L-6 -8 L-6 -18 L6 -18 L6 -8 L16 -8 L16 6 Z" fill="none" stroke="#b48af0" stroke-width="2.2" stroke-linejoin="round"/>
+    <text x="0" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#d9c6f7" font-weight="700">MANAGER</text>
+  </g>
+
+  <!-- satellite agents -->
+  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#c9d8e8" text-anchor="middle">
+    <g transform="translate(190,100)">
+      <circle r="34" fill="#0c1e38" stroke="#4fc3f7" stroke-width="2"/>
+      <path d="M-10 4 h20 M-10 -2 h20 M-10 -8 h14" stroke="#4fc3f7" stroke-width="2" stroke-linecap="round"/>
+      <text y="52" fill="#8fb8cc">RESEARCH</text>
+    </g>
+    <g transform="translate(610,100)">
+      <circle r="34" fill="#0c1e38" stroke="#22d3a4" stroke-width="2"/>
+      <path d="M-10 8 L-4 -2 L2 4 L10 -8" fill="none" stroke="#22d3a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text y="52" fill="#8fb8cc">FINANCE</text>
+    </g>
+    <g transform="translate(190,330)">
+      <circle r="34" fill="#0c1e38" stroke="#ffb74d" stroke-width="2"/>
+      <rect x="-10" y="-2" width="6" height="10" fill="#ffb74d"/>
+      <rect x="-1" y="-8" width="6" height="16" fill="#ffb74d"/>
+      <rect x="8" y="-6" width="6" height="14" fill="#ffb74d"/>
+      <text y="-46" fill="#8fb8cc">DATA ANALYST</text>
+    </g>
+    <g transform="translate(610,330)">
+      <circle r="34" fill="#0c1e38" stroke="#f06292" stroke-width="2"/>
+      <rect x="-11" y="-9" width="22" height="16" rx="1.5" fill="none" stroke="#f06292" stroke-width="2"/>
+      <line x1="-11" y1="10" x2="11" y2="10" stroke="#f06292" stroke-width="2"/>
+      <text y="-46" fill="#8fb8cc">PRESENTATION</text>
+    </g>
+  </g>
+</svg>

@@ -23,7 +23,7 @@ hero:
   stats:
     - num: "2+"
       label: Years Exp.
-    - num: "5+"
+    - num: "10+"
       label: Projects
     - num: BMW
       label: Group Client
@@ -106,9 +106,45 @@ projects:
 
   - title: Spotify Database with FastAPI
     description: Data pipeline from a single source to create a database with full CRUD operations using FastAPI and SQLite.
-    img: ""
+    img: assets/img/projects/spotify-fastapi.svg
     category: data engineering
     github: https://github.com/farhanzafrani/Spotify-Database-Development-using-FastAPI-and-SQlite
+
+  - title: AI Code Review & DevOps Assistant
+    description: GitHub-integrated platform that AI-reviews every PR diff with RAG-backed context, flags security issues, and ships CI/CD, Helm/k8s deployment, and monitoring for the platform itself.
+    img: assets/img/projects/code-review-ai.svg
+    category: ai agents
+    github: https://github.com/farhanzafrani/code-review.ai
+
+  - title: AutoBusinessAI
+    description: Multi-agent AI platform where specialized agents (Manager, Research, Finance, Data Analyst, Presentation) collaborate to turn a single natural-language business request into reports, presentations, and dashboards.
+    img: assets/img/projects/auto-business-ai.svg
+    category: ai agents
+    github: https://github.com/farhanzafrani/auto-business.ai
+
+  - title: AI Dev Team
+    description: GitHub Actions bot where role-specialized AI agents (frontend, backend, devops, fullstack) write code for issues and review pull requests automatically.
+    img: assets/img/projects/ai-dev-team.svg
+    category: ai agents
+    github: https://github.com/farhanzafrani/ai-dev-team
+
+  - title: RAG-based ANSA Code Assistant
+    description: RAG-powered engineering assistant that turns natural-language problem descriptions into complete ANSA Python API scripts, combining mathematical reasoning with API-specific retrieval.
+    img: assets/img/projects/ansa-rag-assistant.svg
+    category: CAE automation
+    github: https://github.com/farhanzafrani/RAG-based-ANSA-Code-Assistant
+
+  - title: HET Crack Evaluator
+    description: Python tool with a web interface for evaluating and visualizing Hole Expansion Test (HET) crack data to support material formability decisions.
+    img: assets/img/projects/het-crack-evaluator.svg
+    category: CAE automation
+    github: https://github.com/farhanzafrani/het-crack-evaluator
+
+  - title: SaaS App with Django & Neon Postgres
+    description: SaaS application with a Django backend and HTML/TailwindCSS frontend, using Neon serverless Postgres for fast, cost-optimized data retrieval.
+    img: assets/img/projects/saas-app.svg
+    category: data engineering
+    github: https://github.com/farhanzafrani/SaaS_app
 
 skills:
   - title: "CAE & Simulation"
